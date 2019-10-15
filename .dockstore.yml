@@ -1,0 +1,50 @@
+version: 1.1
+service:
+  type: Helm
+  name: Galaxy
+  author: Galaxy Project
+  description: |
+    Galaxy is a data analysis platform focusing on accessibility, reproducibility, and transparency of primarily bioinformatics data.
+  files:
+     - LICENSE
+     - README.md
+     - galaxy/.helmignore
+     - galaxy/Chart.yaml
+     - galaxy/README.md
+     - galaxy/postgres-pv.yaml
+     - galaxy/requirements.lock
+     - galaxy/requirements.yaml
+     - galaxy/values-cvmfs.yaml
+     - galaxy/values.yaml
+     - galaxy/files/conf.d/init1_dbobjects.sh
+     - galaxy/files/conf.d/README.md
+     - galaxy/files/conf.d/init2_restore.sh
+     - galaxy/files/configs/integrated_tool_panel.xml
+     - galaxy/files/rules/k8s-container-mapper.py
+     - galaxy/scripts/delete
+     - galaxy/scripts/helm_package
+     - galaxy/scripts/install
+     - galaxy/scripts/test-install
+     - galaxy/scripts/dumps/galaxy1901.sql
+     - galaxy/scripts/dumps/galaxy1905.sql
+     - galaxy/templates/NOTES.txt
+     - galaxy/templates/_helpers.tpl
+     - galaxy/templates/configmap-galaxy-rules.yaml
+     - galaxy/templates/configmap-scripts.yaml
+     - galaxy/templates/configs-galaxy.yaml
+     - galaxy/templates/deployment-job.yaml
+     - galaxy/templates/deployment-web.yaml
+     - galaxy/templates/ingress.yaml
+     - galaxy/templates/pvc-cvmfs-data.yaml
+     - galaxy/templates/pvc-cvmfs-main.yaml
+     - galaxy/templates/pvc-galaxy.yaml
+     - galaxy/templates/rbac-job.yaml
+     - galaxy/templates/secret-galaxydb.yaml
+     - galaxy/templates/secret-initdb.yaml
+     - galaxy/templates/service.yaml
+     - galaxy/templates/tests/test-connection.yaml
+
+  scripts:
+    start: cd galaxy; helm install --name galaxy . --set service.type=NodePort
+    stop: helm del --purge galaxy
+    port: kubectl get services -o jsonpath='{..nodePort}'
