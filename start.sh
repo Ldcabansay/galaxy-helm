@@ -4,5 +4,5 @@ set -e
 cd galaxy
 
 helm dependency update
-helm install --name galaxy .
+helm install --name galaxy --set service.type=NodePort .
 
