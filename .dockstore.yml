@@ -8,6 +8,7 @@ service:
   files:
      - LICENSE
      - README.md
+     - start.sh
      - galaxy/.helmignore
      - galaxy/Chart.yaml
      - galaxy/README.md
@@ -45,6 +46,6 @@ service:
      - galaxy/templates/tests/test-connection.yaml
 
   scripts:
-    start: cd galaxy; helm install --name galaxy . --set service.type=NodePort
+    start: ./start.sh
     stop: helm del --purge galaxy
     port: kubectl get services -o jsonpath='{..nodePort}'
