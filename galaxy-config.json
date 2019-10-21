@@ -1,5 +1,5 @@
 {
-    "description": "Replica count for web handler",
+    "description": "One web handler, two web handlers",
     "environment": {
         "webHandlers_replicaCount": 1,
         "jobHandlers_replicaCount": 2
