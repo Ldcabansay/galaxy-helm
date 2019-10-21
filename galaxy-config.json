@@ -1,6 +1,7 @@
 {
-    "description": "Ups the replica count for the web handler to 2",
+    "description": "Replica count for web handler",
     "environment": {
-        "webHandlers_replicaCount": 2
+        "webHandlers_replicaCount": 1,
+        "jobHandlers_replicaCount": 2
     }
 }

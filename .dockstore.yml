@@ -54,4 +54,7 @@ service:
   environment:
     webHandlers_replicaCount:
       default: 1
-      description:  The replica count of web handlers
+      description:  The replica count for web handlers
+    jobHandlers_replicaCount:
+      default: 1
+      description: The replica count for job handlers
