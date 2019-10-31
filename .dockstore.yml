@@ -10,6 +10,7 @@ service:
      - LICENSE
      - README.md
      - start.sh
+     - stop.sh
      - galaxy/.helmignore
      - galaxy/Chart.yaml
      - galaxy/README.md
@@ -48,7 +49,7 @@ service:
 
   scripts:
     start: ./start.sh
-    stop: helm del --purge galaxy
+    stop: ./stop.sh
     port: kubectl get services -o jsonpath='{..nodePort}'
 
   environment:
