@@ -51,7 +51,7 @@ service:
   scripts:
     start: ./start.sh
     stop: ./stop.sh
-    port: kubectl get services -o jsonpath='{..nodePort}'
+    port: ./port.sh
 
   environment:
     webHandlers_replicaCount:
