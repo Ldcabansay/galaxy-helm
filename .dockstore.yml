@@ -7,7 +7,7 @@ service:
     Galaxy is a data analysis platform focusing on accessibility, reproducibility, and transparency of primarily bioinformatics data.
   files:
      - galaxy-config.json
-     - healthcheck.json
+     - healthcheck.sh
      - LICENSE
      - README.md
      - port.sh
